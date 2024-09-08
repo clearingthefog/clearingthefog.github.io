@@ -19527,9 +19527,9 @@ Columns contain acronyms such as:</p>
 <h3 id="baseball-prospectus"><strong><span class='provider-bp'>Baseball Prospectus</span></strong></h3>
 
 <h4 id="deserved-stats">Deserved stats</h4>
-<p>Of the three, Baseball Prospectus is most concerned with determining what a player “deserved”, as opposed to what actually happened. In general, they give more credit for statistically predictive and stable outcomes, like lots of homeruns or a high walk rate, and less credit for “fluky” outcomes like triples and infield hits. In practice, this means they tend to be much more conservative in their WAR estimates for most players, espectially speed-and-defense oriented guys.</p>
+<p>Of the three, Baseball Prospectus is most concerned with determining what a player “deserved”, as opposed to what actually happened. In general, they give more credit for statistically predictive and stable outcomes, like lots of homeruns or a high walk rate, and less credit for “fluky” outcomes like triples and infield hits. In practice, this means they tend to be much more conservative in their WAR estimates for most players, especially speed-and-defense oriented guys.</p>
 
-<p>Their stats also (claim to) account for many more complicating factors than the other providers, such as the identity of the umpire for every plate appearance. I don’t know enough about their calculations to judge how well they do this or how big of an impact it has, but it is worth noting.</p>
+<p>As I understand it, their stats also (claim to) account for many more complicating factors than the other providers, such as the identity of the umpire for every plate appearance. I don’t know enough about their calculations to judge how well they do this or how big of an impact it has, but it is worth noting.</p>
 
 <h4 id="runs-per-win-1">Runs per win</h4>
 
@@ -19542,13 +19542,15 @@ Columns contain acronyms such as:</p>
 
 <p>Notice that I can only compute the sum of replacement level and positional adjustment, and can’t tell how much each contributes to that sum. Because of that, throughout this site you will see “Replacement value”, which is actually this sum. I believe this is still a reasonable way to present this information, it’s just a positionally-aware replacement level.</p>
 
-<p>Baseball Prospectus also seems to use a notably lower replacement level than the other two, which 
-tilts value slightly more in favor of availability over exceptional production (think 2023 Marcus Semien vs 2023 Corey Seager). It is unclear how to what degrees their positional adjustments differ from the other two providers.</p>
+<p>Baseball Prospectus also seems to use a notably lower replacement level than the other two, which tilts value slightly more in favor of availability over exceptional production (think 2023 Marcus Semien vs 2023 Corey Seager). It is unclear to what degree their positional adjustments differ from the other two providers.</p>
 
 <h4 id="gidp-1">GIDP</h4>
 
-<p>It’s not clear to me whether BP considers GIDP to be a baserunning event, a hitting event, or both. It doesn’t affect the WAR totals, but the component breakdowns may be slightly off if we’re comparing e.g. FanGraphs baserunning with GIDP value to BP baserunning without GIDP value.</p>
+<p>I’m not sure whether BP considers GIDP to be a baserunning event, a hitting event, or both. It doesn’t affect the WAR totals, but the component breakdowns may be slightly off if we’re comparing e.g. FanGraphs baserunning with GIDP value to BP baserunning without GIDP value.</p>
 
+<h1 id="production-details">Production details</h1>
+
+<p>Stats are processed with Python, and plots are generated using Plotly.</p>
 
 
       <footer class="site-footer">
