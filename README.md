@@ -1,1 +1,0 @@
-# clearingthefog.github.io

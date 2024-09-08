@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+
+    <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Clearing the Fog | of Wins Above Replacement</title>
+<meta name="generator" content="Jekyll v4.3.3" />
+<meta property="og:title" content="Clearing the Fog" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="of Wins Above Replacement" />
+<meta property="og:description" content="of Wins Above Replacement" />
+<link rel="canonical" href="http://localhost:4000/pages/what_is_war.html" />
+<meta property="og:url" content="http://localhost:4000/pages/what_is_war.html" />
+<meta property="og:site_name" content="Clearing the Fog" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Clearing the Fog" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"of Wins Above Replacement","headline":"Clearing the Fog","url":"http://localhost:4000/pages/what_is_war.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <!-- <link rel="preconnect" href="https://fonts.gstatic.com"> -->
+    <!-- <link rel="preload" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap" as="style" type="text/css" crossorigin> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#157878">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="stylesheet" href="/assets/css/style.css?v=">
+    <!-- custom css -->
+    <link rel="stylesheet" href="/assets/css/generated/team_colors.css">
+
+    <!-- jquery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js" integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8=" crossorigin="anonymous"></script>
+    <!-- my custom scripts -->
+    <script src="/assets/js/custom.js"></script>
+    <!-- plotly -->
+    <script charset="utf-8" src="https://cdn.plot.ly/plotly-2.32.0.min.js"></script>
+  </head>
+
+
+  <body>
+    <a id="skip-to-content" href="#content">Skip to the content.</a>
+
+    <header id="theheader" class="page-header" role="banner">
+      <!-- <a href="/" style="color: none"> -->
+        <h1 id="header-text" class="project-name">Clearing the Fog</h1>
+        <h2 class="project-tagline">
+          ...of <b>W</b>ins <b>A</b>bove <b>R</b>eplacement
+        </h2>
+      <!-- </a> -->
+    </header>
+
+    <div class="my-navbar">
+      <ul style="width: 100%">
+        <li><a href="/">Home</a></li>
+        <li><a href="/pages/what_is_war.html">What Is WAR</a></li>
+        <li><a href="/pages/player_comparisons.html">Player Comparisons</a></li>
+        <li class="dropdown">
+          <a href="javascript:void(0)" class="dropbtn">Leaders</a>
+          <div class="dropdown-content">
+            <a href="/pages/generated/figures_standalone/war_leaders/AL.html">AL Leaderboard</a>
+            <a href="/pages/generated/figures_standalone/war_leaders/NL.html">NL Leaderboard</a>
+            <a href="/pages/generated/figures_standalone/3d_war/all.html">3D War Leadboard</a>
+          </div>
+        </li>
+        <li><a href="/pages/details.html">Details</a></li>
+
+        <li class="rightalign"><a href="/pages/about.html">About</a></li>
+      </ul>
+    </div>
+
+    <main id="content" class="main-content" role="main">
+      <!-- <script src="/assets/js/complexity_toggle.js"></script> -->
+
+<h1 id="the-fog">The Fog</h1>
+
+<blockquote>
+  <p>Actions in war are based upon factors wrapped in a fog of uncertainty. A sensitive and discriminating judgment is called for; a skilled intelligence to scent out the truth.
+— Carl von Clausewitz<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup></p>
+</blockquote>
+
+<p>Carl was talking about actual war there, with guns and bayonets and the like, but the concept of “the fog of war” applies just as well to uncertainty in opposing troop movements as it does to the the general misunderstanding and misapplication of the <b>W</b>ins <b>A</b>bove <b>R</b>eplacement statistic in the baseball fan (and even analyst) community.</p>
+
+<hr />
+
+<p>If you’ve heard of WAR, I’d wager you’ve already heard some of the following statements:</p>
+
+<blockquote>
+  <p>WAR is wrong, because it is impossible to reduce a player’s season down to a single number.</p>
+</blockquote>
+
+<blockquote>
+  <p>The fact that different WAR implementations arrive at such different answers for the value of Player X indicates that WAR is fundamentally flawed or unreliable.</p>
+</blockquote>
+
+<blockquote>
+  <p>WAR cannot be used to compare players within ~0.5 win of eachother, because that difference is insignificant or within the margin of error.</p>
+</blockquote>
+
+<p>Although I believe these statements to be false, false, and imprecise respectively, the purpose of this site is not to prove that to you. Instead, this site attempts to provide the tools for you to examine these and other claims for yourself, by breaking down the components and underpinnings of WAR and evaluating uncertainty of each of them. Specifically, it presents statistics gathered from the publicly-available WAR leaderboards of <a href="https://www.baseball-reference.com/leaders/WAR_bat_top_ten.shtml"><span class='provider-br'>Baseball Reference</span></a>, <a href="https://www.fangraphs.com/leaders/major-league"><span class='provider-fg'>FanGraphs</span></a>, and <a href="https://www.baseballprospectus.com/leaderboards/hitting/"><span class='provider-bp'>Baseball Prospectus</span></a>, which I’ll refer to as the three “WAR providers”.<sup id="fnref:2" role="doc-noteref"><a href="#fn:2" class="footnote" rel="footnote">2</a></sup></p>
+
+<h1 id="what-is-war">What is WAR?</h1>
+
+<p>WAR is: a unit.</p>
+
+<p>A definition that short makes it seem like I’m trying to be cute, but I assure you I’m not. Wins Above Replacement is a unit of measure, just like miles, meters, gallons, or dog-years.</p>
+
+<p>An analogy: Perhaps you’ve heard of the tallest mountain in the world, Mount Everest. It stands at a towering 29,000 feet above sea level, give or take. But wait! That scratching noise you hear at your window is a horde of trivia geeks and fun-fact addicts, desperate to tell us that the correct answer is arguably Hawaii’s Mauna Kea, because thousands of feet of the mountain’s height are submerged beneath the ocean. It’s simply a question of how you measure elevation: feet above the ocean floor, or feet above sea level?</p>
+
+<p>The same is true of every baseball statistic. Each has two components, the unit and the reference point. Batting Average is technically Batting Average Above .000, and Home Runs are similarly measured relative to zero, though we never explicitly write them out that way because it’d be silly. However, one can easily imagine a stat with a different reference point, for example Home Runs Above 30 (HRA30). Barry Bonds in his 73 homer season set the single-season record for HRA30, with 43. Mike Trout had -3 HRA30 in 2013, but that doesn’t mean his 27 home runs weren’t valuable! Et cetera. It’s a silly stat, but it’s measuring the same thing, just with a different baseline.</p>
+
+<blockquote>
+  <p>Fun fact: 17 players in history have a positive HRA30 for their career, ranging from Barry Bonds’ +113 to Jeff Bagwell’s +1. It’s a list of hall-of-famers, and also Adam Dunn.</p>
+</blockquote>
+
+<p>Hopefully you see where this is going. WAR is just like every other baseball statistic you know: a measurement (in “Wins”) and a baseline (called “Replacement”).</p>
+
+<h2 id="how-do-you-measure-replacement-level">How Do You Measure Replacement Level?</h2>
+
+<p>Most traditional baseball statistics are relative to zero. This is valuable in its simplicity, but it is also subtly counter-intuitive. Aaron Judge’s 62 home runs in 2022 tell us the Yankees benefited from +62 home runs of value from Judge, compared to simply leaving the his lineup spot empty every night and accruing 3 to 5 automatic outs each game for failing to send a batter to the plate. But that’s obviously the wrong baseline to compare to. The correct baseline is the number of home runs we’d expect from the assortment of no-name Triple-A outfielders and waiver-wire claims the Yankees would have to call upon to supplement their roster if they lost Judge. If we think these Johnny NoNames would hit 14 home runs given Judge’s playing time, then Judge’s actual home run value added is closer to +38 home runs <i>above replacement</i>. That’s the whole idea of measuring relative to replacement. Simple, right?</p>
+
+<p>As for the actual implementation of estimating replacement level, the three WAR providers all take a similar approaches: Instead of looking at the specific guys that would fill in for an injured Aaron Judge, they opt to estimate the average skill level of all such “replacement-level” players throughout the league. This is neither right nor wrong, it is simply a choice that has to be made. One could easily make a different decision by measuring a team-specific replacement level, and it’d result in an equally valid and defensible WAR statistic. Because WAR is just the unit of measure.</p>
+
+<h2 id="how-do-you-measure-wins">How Do You Measure Wins?</h2>
+
+<p>You can measure wins however you want to! WAR is flexible like that. You could argue that every walk-off hit is worth +1 win, and everything else is zero, perhaps relative to a replacement-level rate of 0.1 walk-offs per year. That’s totally valid!</p>
+
+<blockquote>
+  <p>Nick Castellanos is the runaway favorite for 2024 MVP, he leads baseball with 3.9 walk-off wins above replacement!</p>
+</blockquote>
+
+<p>Even though this formulation of WAR isn’t very useful or interesting, as long as you’re estimating wins relative to some replacement baseline, it’s WAR. Of course, there are better ways of going about it. The smart minds at the three WAR providers all settled on a fairly similar philosophical framework for measuring wins, which is to measure everything’s value in runs first, and then convert to wins. We could just measure in runs and leave it at that (<a href="https://sportsanalytics.studentorg.berkeley.edu/blog-posts/war-sucks.html">some have argued that we should anyway</a>), except that runs have different value across different eras. Scoring a run in 1968, year of the pitcher, helped your team win a whole lot more than a run scored in 2000, the peak of the steroid era. It’s fairly easy to compute a simple conversion factor, which at the moment stands at roughly ten runs per one win.<sup id="fnref:3" role="doc-noteref"><a href="#fn:3" class="footnote" rel="footnote">3</a></sup></p>
+
+<p>For hitters, the WAR providers break value into three common-sense buckets of value: hitting value above average, fielding value above average, and baserunning value above average. Each of these components is in turn the sum of the run values of every hit, catch, stolen base, etc. that the player contributed to. Lastly, they add the value difference betweeen average play and replacement level play, to set the baseline at replacement level.<sup id="fnref:4" role="doc-noteref"><a href="#fn:4" class="footnote" rel="footnote">4</a></sup></p>
+
+<h1 id="what-is-war-not">What is WAR <em>not</em>?</h1>
+
+<p>There are some things baseball analysts haven’t figured out how to measure very well, or at all. Catcher game calling. Veteran presence. But since these are un-measurable, it would be silly to expect they are captured in WAR, a unit of <em>measure</em>. And no serious proponents of WAR claim that it does. If you want to argue that much of the value of soft-skills guys like Jeff Mathis goes uncaptured by WAR, that’s absolutely a valid position to hold, and many of the architects of WAR will likely even agree with you.</p>
+
+<p>WAR never claims to be perfect, only better than the alternative.</p>
+
+<h1 id="clearing-the-fog">Clearing the Fog</h1>
+
+<p>Now that we’ve got a solid understanding of what WAR is, let’s take a look at those claims from the top of the page, and how we can go about investigating them.</p>
+
+<blockquote>
+  <p>Claim: WAR is wrong, because it is impossible to reduce a player’s season down to a single number.</p>
+</blockquote>
+
+<p>As we’ve seen, WAR is not really a single number, it’s just a unified scale upon which many thousands of numbers are added together. The value of every hit, catch, stolen base, etc. goes into the calculation of WAR. You can use the <a href="/pages/player_comparisons.html">Player Comparison tool</a> to see all the components that contribute to WAR.</p>
+
+<blockquote>
+  <p>Claim: The fact that different WAR implementations arrive at such different answers for the value of Player X indicates that WAR is fundamentally flawed or unreliable.</p>
+</blockquote>
+
+<p>This is actually a great strength of WAR. Multiple independent WAR estimates allow us to gauge uncertainty or tailor each implementation to specific needs. See how the existence of multiple WAR implementations provides a richer picture of player value by perusing the <a href="/pages/generated/figures_standalone/war_leaders/AL.html">WAR leaderboards</a>. Also check out this piece by Tom Tango, one of WAR’s founding fathers, talking about <a href="http://tangotiger.com/index.php/site/article/small-choices-big-implications-in-war">the benefits of WAR’s flexibility and multiple implementations</a>.</p>
+
+<blockquote>
+  <p>Claim: WAR cannot be used to compare players within ~0.5 win of eachother, because that difference is insignificant or within the margin of error.</p>
+</blockquote>
+
+<p>Although this is true in sentiment, the use of a fixed WAR difference threshold is not accurate. The uncertainty of WAR is highly influenced by the style of the player! Just take a look at the <a href="/pages/player_comparisons.html?pid1=jarrenduran680776&amp;pid2=shoheiohtani660271#component-uncertainty">Uncertainty Comparison for Jarren Duran and Shohei Ohtani</a>. While their average WARs are similar, the error bars on Duran’s estimates are massive, close to ±3 WAR, while Ohtani’s are much more tightly clustered around ±0.5 wins.</p>
+
+<p><br /></p>
+
+<h3 id="footnotes">footnotes</h3>
+
+<hr />
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:1" role="doc-endnote">
+      <p>I paraphrased Carl’s quote here slightly for clarity <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:2" role="doc-endnote">
+      <p>These sites have done all the heavy lifting, I am just repackaging their material. Many thanks to them for making their WAR totals, as well as the constituent components, available to the public. <a href="#fnref:2" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:3" role="doc-endnote">
+      <p>Ten runs per win might seem counterintuitive at first. It’s not uncommon to win a game by scoring just 3 or 4 runs! But the ten runs are not all added to the same game, you must imagine them as randomly distributed throughout all games in the season. Most of the time, an extra run will turn a 5-2 loss into a 5-3 loss, or a 7-4 win into an 8-4 win. Only roughly 1 in 10 of those runs will end up contributing to flipping the result of a game from a loss to a win. Hence 10 runs per win, on average. <a href="#fnref:3" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:4" role="doc-endnote">
+      <p>This is generally accurate, but simplified. Refer to the three WAR providers for the specifics on how they implement their calculations. <a href="#fnref:4" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+
+
+      <footer class="site-footer">
+        <!-- <span class="site-footer-owner"></span> -->
+        <span class="site-footer-credits">
+          
+Data last updated: afternoon of 2024-09-07
+          <br>
+          <br>
+          Clearing The Fog is created by laughingstock, <i>aka</i> Julian
+          <br>
+          Feel free to reach me at: laughingstock91 (at) gmail (dot) com
+          <br><br>
+          <span style="font-size: 0.7rem">
+            I do not own any of the data presented on the site. It is all gathered from 
+            <a href="https://www.baseball-reference.com">Baseball Reference</a>, 
+            <a href="https://www.fangraphs.com">FanGraphs</a>, and 
+            <a href="https://www.baseballprospectus.com">Baseball Prospectus</a>, and presented
+            as-is, with no guarantees of accuracy or any other sort. The design of the site is based 
+            on the <a href="https://github.com/pages-themes/cayman">Cayman Theme</a> from Github Pages.
+          </span>
+        </span>
+      </footer>
+    </main>
+  </body>
+</html>

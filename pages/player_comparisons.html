@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+
+    <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Clearing the Fog | of Wins Above Replacement</title>
+<meta name="generator" content="Jekyll v4.3.3" />
+<meta property="og:title" content="Clearing the Fog" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="of Wins Above Replacement" />
+<meta property="og:description" content="of Wins Above Replacement" />
+<link rel="canonical" href="http://localhost:4000/pages/player_comparisons.html" />
+<meta property="og:url" content="http://localhost:4000/pages/player_comparisons.html" />
+<meta property="og:site_name" content="Clearing the Fog" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Clearing the Fog" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"of Wins Above Replacement","headline":"Clearing the Fog","url":"http://localhost:4000/pages/player_comparisons.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <!-- <link rel="preconnect" href="https://fonts.gstatic.com"> -->
+    <!-- <link rel="preload" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap" as="style" type="text/css" crossorigin> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#157878">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="stylesheet" href="/assets/css/style.css?v=">
+    <!-- custom css -->
+    <link rel="stylesheet" href="/assets/css/generated/team_colors.css">
+
+    <!-- jquery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js" integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8=" crossorigin="anonymous"></script>
+    <!-- my custom scripts -->
+    <script src="/assets/js/custom.js"></script>
+    <!-- plotly -->
+    <script charset="utf-8" src="https://cdn.plot.ly/plotly-2.32.0.min.js"></script>
+  </head>
+
+
+  <body>
+    <a id="skip-to-content" href="#content">Skip to the content.</a>
+
+    <header id="theheader" class="page-header" role="banner">
+      <!-- <a href="/" style="color: none"> -->
+        <h1 id="header-text" class="project-name">Clearing the Fog</h1>
+        <h2 class="project-tagline">
+          ...of <b>W</b>ins <b>A</b>bove <b>R</b>eplacement
+        </h2>
+      <!-- </a> -->
+    </header>
+
+    <div class="my-navbar">
+      <ul style="width: 100%">
+        <li><a href="/">Home</a></li>
+        <li><a href="/pages/what_is_war.html">What Is WAR</a></li>
+        <li><a href="/pages/player_comparisons.html">Player Comparisons</a></li>
+        <li class="dropdown">
+          <a href="javascript:void(0)" class="dropbtn">Leaders</a>
+          <div class="dropdown-content">
+            <a href="/pages/generated/figures_standalone/war_leaders/AL.html">AL Leaderboard</a>
+            <a href="/pages/generated/figures_standalone/war_leaders/NL.html">NL Leaderboard</a>
+            <a href="/pages/generated/figures_standalone/3d_war/all.html">3D War Leadboard</a>
+          </div>
+        </li>
+        <li><a href="/pages/details.html">Details</a></li>
+
+        <li class="rightalign"><a href="/pages/about.html">About</a></li>
+      </ul>
+    </div>
+
+    <main id="content" class="main-content" role="main">
+      <h1 id="player-comparisons">Player Comparisons</h1>
+
+<p>The following charts break down the WAR estimates of <span class='provider-br'>Baseball Reference</span>, <span class='provider-fg'>FanGraphs</span>, and <span class='provider-bp'>Baseball Prospectus</span> into their constituent components, allowing more in-depth comparisons between players. These components of WAR are:</p>
+
+<ul>
+  <li>Batting: Value created as a hitter relative to average</li>
+  <li>Fielding: Value created as a defender, relative to the average at their position</li>
+  <li>Baserunning: The value of their stolen bases and more complicated baserunning events like going first-to-third on a single, relative to average</li>
+  <li>Replacement: This value converts from a “relative to average” baseline to “relative to replacement level”. It is a measure of how difficult it would be to fill this player’s position with average production.</li>
+</ul>
+
+<p>So far I’ve only implemented this for batters, so you won’t see any pitchers here</p>
+
+<hr />
+
+<p>Select any two of the top-25 players below to compare:</p>
+
+<script src="/assets/js/headtohead_selector.js"></script>
+
+<p><button id="aaronjudge592450" class="playerselector headtohead selected2"><span style="color: rgba(0, 38, 100, 1.0)">Aaron Judge</span></button>
+<button id="bobbywittjr677951" class="playerselector headtohead selected1"><span style="color: rgba(80, 150, 199, 1.0)">Bobby Witt Jr</span></button>
+<button id="juansoto665742" class="playerselector headtohead"><span style="color: rgba(0, 38, 100, 1.0)">Juan Soto</span></button>
+<button id="gunnarhenderson683002" class="playerselector headtohead"><span style="color: rgba(223, 70, 1, 1.0)">Gunnar Henderson</span></button>
+<button id="shoheiohtani660271" class="playerselector headtohead"><span style="color: rgba(0, 90, 156, 1.0)">Shohei Ohtani</span></button>
+<button id="franciscolindor596019" class="playerselector headtohead"><span style="color: rgba(255, 89, 16, 1.0)">Francisco Lindor</span></button>
+<button id="jarrenduran680776" class="playerselector headtohead"><span style="color: rgba(189, 48, 57, 1.0)">Jarren Duran</span></button>
+<button id="vladimirguerrerojr665489" class="playerselector headtohead"><span style="color: rgba(28, 78, 194, 1.0)">Vladimir Guerrero Jr</span></button>
+<button id="ketelmarte606466" class="playerselector headtohead"><span style="color: rgba(150, 22, 47, 1.0)">Ketel Marte</span></button>
+<button id="yordanalvarez670541" class="playerselector headtohead"><span style="color: rgba(235, 110, 31, 1.0)">Yordan Alvarez</span></button>
+<button id="mattchapman656305" class="playerselector headtohead"><span style="color: rgba(253, 90, 30, 1.0)">Matt Chapman</span></button>
+<button id="coreyseager608369" class="playerselector headtohead"><span style="color: rgba(0, 50, 120, 1.0)">Corey Seager</span></button>
+<button id="ellydelacruz682829" class="playerselector headtohead"><span style="color: rgba(198, 1, 31, 1.0)">Elly De La Cruz</span></button>
+<button id="brentrooker667670" class="playerselector headtohead"><span style="color: rgba(8, 121, 48, 1.0)">Brent Rooker</span></button>
+<button id="joseramirez608070" class="playerselector headtohead"><span style="color: rgba(60, 54, 122, 1.0)">Jose Ramirez</span></button>
+<button id="marcellozuna542303" class="playerselector headtohead"><span style="color: rgba(198, 17, 59, 1.0)">Marcell Ozuna</span></button>
+<button id="calraleigh663728" class="playerselector headtohead"><span style="color: rgba(12, 97, 127, 1.0)">Cal Raleigh</span></button>
+<button id="williamcontreras661388" class="playerselector headtohead"><span style="color: rgba(22, 63, 123, 1.0)">William Contreras</span></button>
+<button id="freddiefreeman518692" class="playerselector headtohead"><span style="color: rgba(0, 90, 156, 1.0)">Freddie Freeman</span></button>
+<button id="bryceharper547180" class="playerselector headtohead"><span style="color: rgba(232, 24, 40, 1.0)">Bryce Harper</span></button>
+<button id="jacksonmerrill701538" class="playerselector headtohead"><span style="color: rgba(238, 166, 0, 1.0)">Jackson Merrill</span></button>
+<button id="brentondoyle686668" class="playerselector headtohead"><span style="color: rgba(128, 0, 171, 1.0)">Brenton Doyle</span></button>
+<button id="mookiebetts605141" class="playerselector headtohead"><span style="color: rgba(0, 90, 156, 1.0)">Mookie Betts</span></button>
+<button id="rafaeldevers646240" class="playerselector headtohead"><span style="color: rgba(189, 48, 57, 1.0)">Rafael Devers</span></button>
+<button id="rileygreene682985" class="playerselector headtohead"><span style="color: rgba(12, 35, 64, 1.0)">Riley Greene</span></button>
+<br /><span class="loading-indicator"></span><br /></p>
+
+<h3 id="permutation-war">Permutation WAR</h3>
+
+<p>This feature is perhaps my only novel contribution beyond what is presented by the original WAR providers. The idea is this: there is nothing about WAR that says the <span class='provider-fg'>FanGraphs</span> estimate of Batting Value must be paired with the <span class='provider-fg'>FanGraphs</span> estimate of Fielding value; they are independent. Thus, other permutations of the WAR components are equally valid, for example adding together <span class='provider-fg'>FG</span> Batting, <span class='provider-br'>BR</span> Fielding, <span class='provider-bp'>BP</span> Baserunning, and <span class='provider-br'>BR</span> Replacement Value. With three implementations of four components, this enables 3^4=81 different semi-independent WAR estimates, which provides a much better representation of the spread of uncertainty than just the three main WAR totals.</p>
+
+<p>By comparing these 81 permutations head to head, the plot below evaluates how certain we can be that one player is better than another (according to WAR). Hover over any permutation to see how it is calculated.</p>
+<iframe id="permutationcomparison" class="figframe"></iframe>
+<p>My guidelines for interpreting this plot are as follows: <em>unless Player A leads in 100% of permutations, it cannot be said that Player A is better than Player B according to these WAR estimates</em>. This is because there exists at least one perfectly valid WAR formulation in which Player B is better.</p>
+
+<h3 id="component-uncertainty">Component Uncertainty</h3>
+
+<p>These plots aggregates the estimates of each component of WAR (batting, fielding, baserunning, and replacement value) to capture the spread of their uncertainty. Bar heights indicate value added (or lost), while the error bars indicate the upper and lower bound of WAR permutations for that component or total.</p>
+
+<p>Hover over plot elements for more info</p>
+<iframe id="headtohead" class="figframe"></iframe>
+
+<h3 id="value-breakdowns">Value Breakdowns</h3>
+<p>These plots break down each WAR estimate into its components. Most elements are hoverable or clickable for more info</p>
+
+<iframe id="valuebreakdown1" class="figframe"></iframe>
+<iframe id="valuebreakdown2" class="figframe"></iframe>
+
+<p><br /></p>
+
+<hr />
+
+<p>For further technical details on how these figures are produced, please refer to the <a href="/pages/details.html">Details</a> tab.</p>
+
+
+
+      <footer class="site-footer">
+        <!-- <span class="site-footer-owner"></span> -->
+        <span class="site-footer-credits">
+          
+Data last updated: afternoon of 2024-09-07
+          <br>
+          <br>
+          Clearing The Fog is created by laughingstock, <i>aka</i> Julian
+          <br>
+          Feel free to reach me at: laughingstock91 (at) gmail (dot) com
+          <br><br>
+          <span style="font-size: 0.7rem">
+            I do not own any of the data presented on the site. It is all gathered from 
+            <a href="https://www.baseball-reference.com">Baseball Reference</a>, 
+            <a href="https://www.fangraphs.com">FanGraphs</a>, and 
+            <a href="https://www.baseballprospectus.com">Baseball Prospectus</a>, and presented
+            as-is, with no guarantees of accuracy or any other sort. The design of the site is based 
+            on the <a href="https://github.com/pages-themes/cayman">Cayman Theme</a> from Github Pages.
+          </span>
+        </span>
+      </footer>
+    </main>
+  </body>
+</html>
