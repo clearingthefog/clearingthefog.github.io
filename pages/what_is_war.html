@@ -72,7 +72,20 @@
     <main id="content" class="main-content" role="main">
       <!-- <script src="/assets/js/complexity_toggle.js"></script> -->
 
-<h1 id="the-fog">The Fog</h1>
+<!-- #### table of contents
+
+- [The Fog](#the-fog)
+- [What is WAR?](#what-is-war)
+    - [How do you measure replacement level?](#how-do-you-measure-replacement-level)
+    - [How do you measure wins?](#how-do-you-measure-wins)
+- [What is WAR _not_?](#what-is-war-not)
+- [Clearing the Fog](#clearing-the-fog) -->
+
+<h1 id="what-is-war">What is WAR?</h1>
+
+<p>This is page a quick primer on WAR: what it is, what it isn’t, and what questions about it this site can help you answer.</p>
+
+<h2 id="the-fog">The Fog</h2>
 
 <blockquote>
   <p>Actions in war are based upon factors wrapped in a fog of uncertainty. A sensitive and discriminating judgment is called for; a skilled intelligence to scent out the truth.
@@ -99,7 +112,7 @@
 
 <p>Although I believe these statements to be false, false, and imprecise respectively, the purpose of this site is not to prove that to you. Instead, this site attempts to provide the tools for you to examine these and other claims for yourself, by breaking down the components and underpinnings of WAR and evaluating uncertainty of each of them. Specifically, it presents statistics gathered from the publicly-available WAR leaderboards of <a href="https://www.baseball-reference.com/leaders/WAR_bat_top_ten.shtml"><span class='provider-br'>Baseball Reference</span></a>, <a href="https://www.fangraphs.com/leaders/major-league"><span class='provider-fg'>FanGraphs</span></a>, and <a href="https://www.baseballprospectus.com/leaderboards/hitting/"><span class='provider-bp'>Baseball Prospectus</span></a>, which I’ll refer to as the three “WAR providers”.<sup id="fnref:2" role="doc-noteref"><a href="#fn:2" class="footnote" rel="footnote">2</a></sup></p>
 
-<h1 id="what-is-war">What is WAR?</h1>
+<h2 id="so-what-is-war">So, What is WAR?</h2>
 
 <p>WAR is: a unit.</p>
 
@@ -107,7 +120,7 @@
 
 <p>An analogy: Perhaps you’ve heard of the tallest mountain in the world, Mount Everest. It stands at a towering 29,000 feet above sea level, give or take. But wait! That scratching noise you hear at your window is a horde of trivia geeks and fun-fact addicts, desperate to tell us that the correct answer is arguably Hawaii’s Mauna Kea, because thousands of feet of the mountain’s height are submerged beneath the ocean. It’s simply a question of how you measure elevation: feet above the ocean floor, or feet above sea level?</p>
 
-<p>The same is true of every baseball statistic. Each has two components, the unit and the reference point. Batting Average is technically Batting Average Above .000, and Home Runs are similarly measured relative to zero, though we never explicitly write them out that way because it’d be silly. However, one can easily imagine a stat with a different reference point, for example Home Runs Above 30 (HRA30). Barry Bonds in his 73 homer season set the single-season record for HRA30, with 43. Mike Trout had -3 HRA30 in 2013, but that doesn’t mean his 27 home runs weren’t valuable! Et cetera. It’s a silly stat, but it’s measuring the same thing, just with a different baseline.</p>
+<p>The same is true of every baseball statistic. Each has two components, the unit and the reference point. Batting Average is technically Batting Average Above .000, and Home Runs are similarly measured relative to zero, though we never explicitly write them out that way because it’s implied. However, one can easily imagine a stat with a different reference point, for example Home Runs Above 30 (HRA30). Barry Bonds in his 73 homer season set the single-season record for HRA30, with 43. Mike Trout had -3 HRA30 in 2013, but that doesn’t mean his 27 home runs weren’t valuable! Et cetera. It’s a silly stat, but it’s measuring the same thing, just with a different baseline.</p>
 
 <blockquote>
   <p>Fun fact: 17 players in history have a positive HRA30 for their career, ranging from Barry Bonds’ +113 to Jeff Bagwell’s +1. It’s a list of hall-of-famers, and also Adam Dunn.</p>
@@ -115,13 +128,13 @@
 
 <p>Hopefully you see where this is going. WAR is just like every other baseball statistic you know: a measurement (in “Wins”) and a baseline (called “Replacement”).</p>
 
-<h2 id="how-do-you-measure-replacement-level">How Do You Measure Replacement Level?</h2>
+<h3 id="how-do-you-measure-replacement-level">How Do You Measure Replacement Level?</h3>
 
 <p>Most traditional baseball statistics are relative to zero. This is valuable in its simplicity, but it is also subtly counter-intuitive. Aaron Judge’s 62 home runs in 2022 tell us the Yankees benefited from +62 home runs of value from Judge, compared to simply leaving the his lineup spot empty every night and accruing 3 to 5 automatic outs each game for failing to send a batter to the plate. But that’s obviously the wrong baseline to compare to. The correct baseline is the number of home runs we’d expect from the assortment of no-name Triple-A outfielders and waiver-wire claims the Yankees would have to call upon to supplement their roster if they lost Judge. If we think these Johnny NoNames would hit 14 home runs given Judge’s playing time, then Judge’s actual home run value added is closer to +38 home runs <i>above replacement</i>. That’s the whole idea of measuring relative to replacement. Simple, right?</p>
 
 <p>As for the actual implementation of estimating replacement level, the three WAR providers all take a similar approaches: Instead of looking at the specific guys that would fill in for an injured Aaron Judge, they opt to estimate the average skill level of all such “replacement-level” players throughout the league. This is neither right nor wrong, it is simply a choice that has to be made. One could easily make a different decision by measuring a team-specific replacement level, and it’d result in an equally valid and defensible WAR statistic. Because WAR is just the unit of measure.</p>
 
-<h2 id="how-do-you-measure-wins">How Do You Measure Wins?</h2>
+<h3 id="how-do-you-measure-wins">How Do You Measure Wins?</h3>
 
 <p>You can measure wins however you want to! WAR is flexible like that. You could argue that every walk-off hit is worth +1 win, and everything else is zero, perhaps relative to a replacement-level rate of 0.1 walk-offs per year. That’s totally valid!</p>
 
@@ -135,13 +148,13 @@
 
 <p>WAR also exists for pitchers, but I haven’t implemented it for this site yet so you’ll only see hitters here.</p>
 
-<h1 id="what-is-war-not">What is WAR <em>not</em>?</h1>
+<h2 id="what-is-war-not">What is WAR <em>not</em>?</h2>
 
 <p>There are some things baseball analysts haven’t figured out how to measure very well, or at all. Catcher game calling. Veteran presence. But since these are un-measurable, it would be silly to expect they are captured in WAR, a unit of <em>measure</em>. And no serious proponents of WAR claim that it does. If you want to argue that much of the value of soft-skills guys like Jeff Mathis goes uncaptured by WAR, that’s absolutely a valid position to hold, and many of the architects of WAR will likely even agree with you.</p>
 
 <p>WAR never claims to be perfect, only better than the alternative.</p>
 
-<h1 id="clearing-the-fog">Clearing the Fog</h1>
+<h2 id="clearing-the-fog">Clearing the Fog</h2>
 
 <p>Now that we’ve got a solid understanding of what WAR is, let’s take a look at those claims from the top of the page, and how we can go about investigating them.</p>
 
@@ -162,6 +175,10 @@
 </blockquote>
 
 <p>Although this is true in sentiment, the use of a fixed WAR difference threshold is not accurate. The uncertainty of WAR is highly influenced by the style of the player! Just take a look at the <a href="/pages/player_comparisons.html?pid1=jarrenduran680776&amp;pid2=shoheiohtani660271#component-uncertainty">Uncertainty Comparison for Jarren Duran and Shohei Ohtani</a>. While their average WARs are similar, the error bars on Duran’s estimates are massive, close to ±3 WAR, while Ohtani’s are much more tightly clustered around ±0.5 wins.</p>
+
+<p><br /></p>
+
+<p>Now that you’ve got a handle on WAR, dive into the site features and explore!</p>
 
 <p><br /></p>
 
@@ -189,14 +206,15 @@
       <footer class="site-footer">
         <!-- <span class="site-footer-owner"></span> -->
         <span class="site-footer-credits">
-          
-Data last updated: afternoon of 2024-09-07
-          <br>
-          <br>
           Clearing The Fog is created by laughingstock, <i>aka</i> Julian
           <br>
           Feel free to reach me at: laughingstock91 (at) gmail (dot) com
-          <br><br>
+          <br>
+          <br>
+          
+Data last updated: afternoon of Sunday, September 8, 2024
+          <br>
+          <br>
           <span style="font-size: 0.7rem">
             I do not own any of the data presented on the site. It is all gathered from 
             <a href="https://www.baseball-reference.com">Baseball Reference</a>, 
