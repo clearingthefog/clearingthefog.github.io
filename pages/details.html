@@ -97,7 +97,7 @@ WAR = RAR / RunsPerWin
 
 <ul>
   <li>
-    <p><span class='provider-br'>Baseball Reference</span> provides WAR totals and components for every player-season in history at this handy link, updated daily: <a href="https://www.baseball-reference.com/data/war_daily_bat.txt">https://www.baseball-reference.com/data/war_daily_bat.txt</a>. Usage note: for players who played on multiple teams in a year, those stints are broken out into seperate rows, so you’ve got to combine them together.</p>
+    <p><span class='provider-br'>Baseball Reference</span> provides WAR totals and components for every player-season in history at this handy link, updated daily: <a href="https://www.baseball-reference.com/data/war_daily_bat.txt">https://www.baseball-reference.com/data/war_daily_bat.txt</a>. Usage note: for players who played on multiple teams in a year, those stints are broken out into separate rows, so you’ve got to combine them together.</p>
   </li>
   <li>
     <p><span class='provider-fg'>FanGraphs</span> leaderboards are available for export by members <a href="https://www.fangraphs.com/leaders/major-league?type=6">here</a>. They also conveniently make an API publicly available. I use the following API endpoint to access all players with at least one plate appearance this season: <code class="language-plaintext highlighter-rouge">https://www.fangraphs.com/api/leaders/major-league/data?pos=all&amp;stats=bat&amp;lg=all&amp;season=2024&amp;month=0&amp;season1=2024&amp;qual=1&amp;ind=0&amp;pageitems=10000</code></p>
@@ -19583,10 +19583,10 @@ Columns contain acronyms such as:</p>
 <p>Baseball Reference uses a variable runs-per-win, since a player’s own production can influence the run environment they play in. Fewer runs are needed to win when Randy Johnson is on the mound, because they’re harder to come by. They do not provide the value directly in their spreadsheet, so I estimate it by dividing <code class="language-plaintext highlighter-rouge">RAR / WAR</code> and <code class="language-plaintext highlighter-rouge">RAA / WAA</code>. For players where both <code class="language-plaintext highlighter-rouge">WAA</code> and <code class="language-plaintext highlighter-rouge">WAR</code> are close to zero, this can lead to some numerical instability, inflating or deflating the inferred runs-per-win value. But that issue only affects guys with very little value and playing time, and the absolute error is quite small.</p>
 
 <h4 id="defense">Defense</h4>
-<p>Baseball Reference is more historically-oriented than the other two providers, meaning their WAR formulation is generally devised to be applicable and consistent across the decades of baseball history. As such, their defensive metrics are perhaps less advanced. I believe they use DRS, while FanGraphs uses Statcast OAA and BP uses a proprietery formula. In general, it’s still a good and reliable system. The exception is for catchers, since Baseball Reference does not include framing in their defensive stats.</p>
+<p>Baseball Reference is more historically-oriented than the other two providers, meaning their WAR formulation is generally devised to be applicable and consistent across the decades of baseball history. As such, their defensive metrics are perhaps less advanced. I believe they use DRS, while FanGraphs uses Statcast OAA and BP uses a proprietary formula. In general, it’s still a good and reliable system. The exception is for catchers, since Baseball Reference does not include framing in their defensive stats.</p>
 
 <h4 id="gidp">GIDP</h4>
-<p>Baseball Reference includes grounded-into-double-play run value as a seperate component, but I added it into baserunning value for consistency with FanGraphs, who do not seperate GIDP from general baserunning.</p>
+<p>Baseball Reference includes grounded-into-double-play run value as a separate component, but I added it into baserunning value for consistency with FanGraphs, who do not separate GIDP from general baserunning.</p>
 
 <h3 id="fangraphs"><strong><span class='provider-fg'>FanGraphs</span></strong></h3>
 
@@ -19597,13 +19597,13 @@ Columns contain acronyms such as:</p>
 <h3 id="baseball-prospectus"><strong><span class='provider-bp'>Baseball Prospectus</span></strong></h3>
 
 <h4 id="deserved-stats">Deserved stats</h4>
-<p>Of the three, Baseball Prospectus is most concerned with determining what a player “deserved”, as opposed to what actually happened. In general, they give more credit for statistically predictive and stable outcomes, like lots of homeruns or a high walk rate, and less credit for “fluky” outcomes like triples and infield hits. In practice, this means they tend to be much more conservative in their WAR estimates for most players, especially speed-and-defense oriented guys.</p>
+<p>Of the three, Baseball Prospectus is most concerned with determining what a player “deserved”, as opposed to what actually happened. In general, they give more credit for statistically predictive and stable outcomes, like lots of home runs or a high walk rate, and less credit for “fluky” outcomes like triples and infield hits. In practice, this means they tend to be much more conservative in their WAR estimates for most players, especially speed-and-defense oriented guys.</p>
 
 <p>As I understand it, their stats also (claim to) account for many more complicating factors than the other providers, such as the identity of the umpire for every plate appearance. I don’t know enough about their calculations to judge how well they do this or how big of an impact it has, but it is worth noting.</p>
 
 <h4 id="runs-per-win-1">Runs per win</h4>
 
-<p>BP does not provide total runs above replacement or runs above average, so I cannot esimate runs per win with <code class="language-plaintext highlighter-rouge">RAR / WAR</code> or <code class="language-plaintext highlighter-rouge">RAA / WAA</code>. For simplicity, I use FanGraph’s runs-per-win value as a best estimate. <code class="language-plaintext highlighter-rouge">RAR</code> is then estimated with <code class="language-plaintext highlighter-rouge">WAR * (FanGraphs runs per win)</code>.</p>
+<p>BP does not provide total runs above replacement or runs above average, so I cannot estimate runs per win with <code class="language-plaintext highlighter-rouge">RAR / WAR</code> or <code class="language-plaintext highlighter-rouge">RAA / WAA</code>. For simplicity, I use FanGraph’s runs-per-win value as a best estimate. <code class="language-plaintext highlighter-rouge">RAR</code> is then estimated with <code class="language-plaintext highlighter-rouge">WAR * (FanGraphs runs per win)</code>.</p>
 
 <h4 id="replacement-level-and-positional-adjustment">Replacement level and positional adjustment</h4>
 <p>BP does not provide their replacement level or positional adjustment directly. But I can compute it with the following:</p>
@@ -19622,13 +19622,13 @@ Columns contain acronyms such as:</p>
 
 <p>Permutation WAR is the only part of this site that doesn’t exist elsewhere (to my knowledge), so further explanation of it is warranted.</p>
 
-<p>Assuming each provider’s estimate of each of the four components of WAR (batting, fielding, baserunning, replacement value) are indepedent—we’ll come back to this assumption—then there is no requirement that one provider’s batting value estimate be paired with that providers fielding value, or baserunning, or replacement level. Thus for a single player we can permute three versions of four components 3^4=81 different ways. To compare between players, we can analyze these permutations head-to-head to get 81 estimates of their value difference.</p>
+<p>Assuming each provider’s estimate of each of the four components of WAR (batting, fielding, baserunning, replacement value) are independent—we’ll come back to this assumption—then there is no requirement that one provider’s batting value estimate be paired with that providers fielding value, or baserunning, or replacement level. Thus for a single player we can permute three versions of four components 3^4=81 different ways. To compare between players, we can analyze these permutations head-to-head to get 81 estimates of their value difference.</p>
 
 <blockquote>
   <p>Note that it is tempting to compare every permutation of player A to every permutation of player B, resulting in 81x81=6561 comparisons, but I would argue that that is not valid. We should only compare like to like, since the relative scales of some providers’ metrics are different. For example, BP replacement levels are lower, so it would be unfair to directly compare to another WAR estimate which uses a different replacement level, since those are fundamentally different units.</p>
 </blockquote>
 
-<h3 id="component-indepenence">Component Indepenence</h3>
+<h3 id="component-independence">Component Independence</h3>
 
 <p>Now, are the WAR components truly independent? Kind of. I’ve decided it’s close enough, but I wouldn’t take offense if you decided otherwise. I do believe that hitting, fielding, and baserunning are all close to perfectly independent, but the problem arises with positional adjustments. Positional adjustments are calibrated to capture the replacement-level offensive production at that position, and/or how much fielding value would be lost if you tried to fill that spot with an out-of-position player. That means positional adjustments are at least partly tied to how those providers estimate offensive and defensive value.</p>
 
