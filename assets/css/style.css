@@ -1133,5 +1133,10 @@ a:hover {
   color: #159957;
   font-style: italic;
 }
+.main-content .img-center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
 
 /*# sourceMappingURL=style.css.map */
