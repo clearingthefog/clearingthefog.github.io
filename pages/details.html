@@ -72,6 +72,14 @@
     <main id="content" class="main-content" role="main">
       <h1 id="technical-details">Technical Details</h1>
 
+<h4 id="table-of-contents">table of contents</h4>
+<ul>
+  <li><a href="#how-war-is-computed">How WAR is Computed</a></li>
+  <li><a href="#data-sources">Data Sources</a></li>
+  <li><a href="#caveats-per-provider">Caveats</a></li>
+  <li><a href="#permutation-war">a closer look at Permutation WAR</a></li>
+</ul>
+
 <p>If you’re new here, I’d recommend you start at the <a href="/pages/what_is_war.html">What Is WAR</a> tab. If you have a solid grasp of the mathematics behind WAR, this page provides the nitty-gritty details that you may be interested in.</p>
 
 <h2 id="how-war-is-computed">How WAR is Computed</h2>
@@ -80,7 +88,7 @@
 
 <p>Although the implementation details of each of these providers’ WAR formulas differ substantially, their structure is similar:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>RAR = Batting_RAA + Fielding_RAA + Basrunning_RAA + Positional_Adjustment_RAA + Replacement_Level_Runs
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>RAR = Batting_RAA + Fielding_RAA + Baserunning_RAA + Positional_Adjustment_RAA + Replacement_Level_Runs
 WAR = RAR / RunsPerWin
 </code></pre></div></div>
 <p>Where <code class="language-plaintext highlighter-rouge">RAA</code> is runs above average and <code class="language-plaintext highlighter-rouge">RAR</code> is runs above replacement. For <a href="#replacement-level-and-positional-adjustment">technical reasons described later on this page</a>, throughout the site I present the sum of Positional RAA and Replacement Level Runs as one number, the positionally-aware Replacement Value. Beyond the technical reasons, I think this presentation is actually more intuitive to the public. It’s hard to wrap one’s head around the idea that a DH is worth -16 runs just by doing their job and being a DH. It’s much easier to conceptualize that their replacement value is only +8 runs, while a shortstop might be +30.</p>
@@ -19610,7 +19618,33 @@ Columns contain acronyms such as:</p>
 
 <p>I’m not sure whether BP considers GIDP to be a baserunning event, a hitting event, or both. It doesn’t affect the WAR totals, but the component breakdowns may be slightly off if we’re comparing e.g. FanGraphs baserunning with GIDP value to BP baserunning without GIDP value.</p>
 
-<h1 id="production-details">Production details</h1>
+<h2 id="permutation-war">Permutation WAR</h2>
+
+<p>Permutation WAR is the only part of this site that doesn’t exist elsewhere (to my knowledge), so further explanation of it is warranted.</p>
+
+<p>Assuming each provider’s estimate of each of the four components of WAR (batting, fielding, baserunning, replacement value) are indepedent—we’ll come back to this assumption—then there is no requirement that one provider’s batting value estimate be paired with that providers fielding value, or baserunning, or replacement level. Thus for a single player we can permute three versions of four components 3^4=81 different ways. To compare between players, we can analyze these permutations head-to-head to get 81 estimates of their value difference.</p>
+
+<blockquote>
+  <p>Note that it is tempting to compare every permutation of player A to every permutation of player B, resulting in 81x81=6561 comparisons, but I would argue that that is not valid. We should only compare like to like, since the relative scales of some providers’ metrics are different. For example, BP replacement levels are lower, so it would be unfair to directly compare to another WAR estimate which uses a different replacement level, since those are fundamentally different units.</p>
+</blockquote>
+
+<h3 id="component-indepenence">Component Indepenence</h3>
+
+<p>Now, are the WAR components truly independent? Kind of. I’ve decided it’s close enough, but I wouldn’t take offense if you decided otherwise. I do believe that hitting, fielding, and baserunning are all close to perfectly independent, but the problem arises with positional adjustments. Positional adjustments are calibrated to capture the replacement-level offensive production at that position, and/or how much fielding value would be lost if you tried to fill that spot with an out-of-position player. That means positional adjustments are at least partly tied to how those providers estimate offensive and defensive value.</p>
+
+<p>To investigate, I’ve plotted comparisons of replacement value (remember, that’s replacement level plus positional adjustment) below. All players with (1) 300 plate appearances through Sept 8 2024 and (2) a single primary position according to my FanGraphs data are included. That position data doesn’t split outfielders by position, so I only plotted catchers and infielders. I then prorated to 600 plate appearances. FanGraphs and BR agree quite well:</p>
+
+<p><img src="/assets/img/fg_vs_br_replacement.png" alt="FanGraphs vs Baseball Reference replacement value" /></p>
+
+<p>FanGraphs has perhaps a slightly larger spread between 1B and C, but it’s only about a quarter-win difference per 600 PAs. Comparing FanGraphs to BP on the other hand, we see BP has a notably more condensed scale:</p>
+
+<p><img src="/assets/img/fg_vs_bp_replacement.png" alt="FanGraphs vs Baseball Prospectus replacement value" /></p>
+
+<p>The difference between a 600 PA catcher vs 1B is only about 1 win according to BP (of course, I had to do some additional estimation to arrive at BPs numbers, including a borrowed runs-per-win factor as described above), while it’s closer to 2 or 2.5 for FanGraphs. This is reflective of the fact that BP’s batting and fielding value estimates are generally regressed toward the mean more, which compresses the difference between positions.</p>
+
+<p>Because of these facts, it might not be entirely mathematically sound to use Permutation WAR to compare players on opposite ends of the positional spectrum. I do believe that internal uncertainty of each component still ends up dwarfing the possible error induced here, but it is worth noting. If you have additional thoughts on this topic, feel free to reach out.</p>
+
+<h2 id="production-details">Production details</h2>
 
 <p>Stats are processed with Python, and plots are generated using Plotly.</p>
 
