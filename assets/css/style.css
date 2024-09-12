@@ -938,26 +938,42 @@ a:hover {
 .main-content table {
   display: block;
   width: 100%;
+  overflow: visible;
   word-break: normal;
   word-break: keep-all;
   -webkit-overflow-scrolling: touch;
+  border: 0;
+  border-collapse: separate;
 }
 .main-content table th {
   font-weight: bold;
-  background: #eaeaea;
+  background: #e8eae9;
+}
+.main-content table thead {
   position: sticky;
   top: 0;
+}
+.main-content table tr {
+  background-color: #fefefe;
+}
+.main-content table tr:nth-child(even) {
+  background-color: rgba(60, 197, 135, 0.0941176471);
+}
+.main-content table tr:hover {
+  background-color: #cfe7ff;
 }
 .main-content table th,
 .main-content table td {
   padding: 0.5rem 1rem;
-  border: 1px solid #e9ebec;
+  border: 0;
+  border-right: 1px solid #c6cacb;
+  min-width: 2px;
 }
-.main-content table tr:nth-child(even) {
-  background-color: #f4f4f4;
+.main-content table thead tr:nth-child(1) th {
+  border-bottom: 1px dashed #c6cacb;
 }
-.main-content table tr:hover {
-  background-color: #cfe7ff;
+.main-content table thead tr:nth-child(2) th {
+  border-bottom: 1px solid #c6cacb;
 }
 .main-content dl {
   padding: 0;
@@ -1013,6 +1029,7 @@ a:hover {
   max-height: 550px;
   overflow: auto;
   font-size: 0.8rem;
+  border: 1px solid #c6cacb;
 }
 
 .my-navbar {
